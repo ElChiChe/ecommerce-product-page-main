@@ -60,6 +60,11 @@ body {
 	display: none;
 }
 
+.icon-menu {
+	position: relative;
+	right: 5px;
+}
+
 .nav-menu {
 	position: relative;
 	top: 70px;
@@ -133,6 +138,9 @@ body {
 
 .product-description {
 	margin: 14px;
+	color: hsl(219, 9%, 45%);
+	font-size: 20px;
+	font-weight: 500;
 }
 
 .title-container {
@@ -146,15 +154,69 @@ body {
 
 .product-price-container {
 	display: flex;
-	background: lightskyblue;
 	width: 92%;
 	justify-content: space-between;
 	align-items: center;
 	height: 50px;
+	margin: 10px;
 }
 
 .product-price-container .product-price {
 	font-weight: 700;
 	font-size: 32px;
+}
 
+.product-price-container .product-discount {
+	padding: 10px;
+	background: hsl(25, 100%, 94%);
+	color: hsl(26, 100%, 55%);
+	font-weight: 700;
+	position: relative;
+	right: 40px;
+}
+
+.product-price-container .product-last-price {
+	text-decoration: line-through;
+	color: hsl(220, 14%, 75%);
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.total-products-container {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 92%;
+	height: 50px;
+}
+
+.total-products-container .total-products {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.total-products-container .minus-icon {
+	width: 14px;
+}
+
+.total-products-container .plus-icon {
+	width: 14px;
+}
+
+.btn-add {
+	width: 92%;
+	height: 70px;
+	border-radius: 10px;
+	border: none;
+	background: hsl(26, 100%, 55%);
+	color: hsl(0, 0%, 100%);
+	font-size: 17px;
+	font-weight: 700;
+	margin: 20px;
+}
+
+.btn-add > img {
+	position: relative;
+	right: 10px;
 }
