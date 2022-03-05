@@ -10,6 +10,10 @@ const minus_icon = document.querySelector(".minus-icon");
 const plus_icon = document.querySelector(".plus-icon");
 
 
+//Cart modal
+const cart_container = document.querySelector(".cart-container");
+
+
 //Product image
 const product_image = document.querySelector(".image-product");
 
@@ -57,4 +61,8 @@ previus_icon.addEventListener("click", () => {
 	if(image_index < 0) {
 		image_index = images.length - 1;
 	}
+})
+
+cart_icon.addEventListener("click", () => {
+	cart_container.classList.toggle("open-cart-container");
 })
