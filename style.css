@@ -50,7 +50,7 @@ body {
 .cart-container {
 	background: hsl(0, 0%, 100%);
 	width: 90%;
-	height: 25%;
+	height: 32%;
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
@@ -77,6 +77,11 @@ body {
 	font-weight: 700;
 }
 
+/*Cart item created with js*/
+.cart-item {
+	background: red;
+}
+
 .cart-text {
 	margin: 20px;
 	font-size: 18px;
@@ -85,6 +90,21 @@ body {
 
 .open-cart-container {
 	display: flex;
+}
+
+.total-products-cart {
+	position: absolute;
+	top: 15px;
+	right: 65px;
+	font-size: 600;
+	background: hsl(26, 100%, 55%);
+	color: hsl(0, 0%, 100%);
+	text-align: center;
+	padding: 2px;
+	border-radius: 10px;
+	width: 20px;
+	font-size: 10px;
+	display: none;
 }
 
 /*MENU STYLE*/
@@ -100,9 +120,14 @@ body {
 	display: none;
 }
 
+.open-menu {
+	display: flex;
+}
+
 .icon-menu {
 	position: relative;
 	right: 5px;
+	cursor: pointer;
 }
 
 .nav-menu {
@@ -130,8 +155,8 @@ body {
 
 .close-icon {
 	position: absolute;
-	top: 17px;
-	left: 17px;
+	top: 25px;
+	left: 18px;
 	cursor: pointer;
 }
 
@@ -242,10 +267,12 @@ body {
 
 .total-products-container .minus-icon {
 	width: 14px;
+	cursor: pointer;
 }
 
 .total-products-container .plus-icon {
 	width: 14px;
+	cursor: pointer;
 }
 
 .btn-add {
@@ -258,6 +285,7 @@ body {
 	font-size: 17px;
 	font-weight: 700;
 	margin: 20px;
+	cursor: pointer;
 }
 
 .btn-add > img {

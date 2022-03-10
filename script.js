@@ -14,8 +14,16 @@ const plus_icon = document.querySelector(".plus-icon");
 const cart_container = document.querySelector(".cart-container");
 
 
+//Menu
+const menu = document.querySelector(".nav-container");
+
+//Total products
+const total_products = document.querySelector(".total-products");
+
+
 //Product image
 const product_image = document.querySelector(".image-product");
+let counter_products = 0;
 
 let image_index = 1;
 
@@ -66,3 +74,49 @@ previus_icon.addEventListener("click", () => {
 cart_icon.addEventListener("click", () => {
 	cart_container.classList.toggle("open-cart-container");
 })
+
+plus_icon.addEventListener("click", () => {
+	counter_products++;
+	total_products.textContent = counter_products;
+})
+
+minus_icon.addEventListener("click", () => {
+	counter_products--;
+	total_products.textContent = counter_products;
+
+	if(counter_products < 0) {
+		counter_products = 0;
+		total_products.textContent = counter_products;
+	}
+})
+
+icon_menu.addEventListener("click", () => {
+	menu.classList.toggle("open-menu");
+
+})
+
+close_icon.addEventListener("click", () => {
+	menu.classList.toggle("open-menu");
+})
+
+
+//Add item to cart
+const cart_empty_text = document.querySelector(".cart-empty-text");
+const cart_items = document.querySelector(".cart-items");
+const total_products_cart = document.querySelector(".total-products-cart");
+let total_items = 0;
+
+//Add a new item to cart
+/*btn_add.addEventListener("click", () => {
+
+	const item = document.createElement("DIV");
+
+	item.innerHTML = `<img src="images/icon-delete.svg" alt="delete-icon">`;
+
+	item.classList.add("cart-item");
+	cart_items.appendChild(item);
+	cart_empty_text.style.display = "none";
+	total_items++;
+	total_products_cart.textContent = total_items;
+	total_products_cart.style.display = "block";
+})*/
