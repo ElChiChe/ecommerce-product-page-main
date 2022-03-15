@@ -8,7 +8,7 @@ const previus_icon = document.querySelector(".previus-icon");
 const next_icon = document.querySelector(".next-icon");
 const minus_icon = document.querySelector(".minus-icon");
 const plus_icon = document.querySelector(".plus-icon");
-
+const btn_checkout = document.querySelector(".btn-checkout");
 
 //Cart modal
 const cart_container = document.querySelector(".cart-container");
@@ -16,9 +16,6 @@ const cart_container = document.querySelector(".cart-container");
 
 //Menu
 const menu = document.querySelector(".nav-container");
-
-//Total products
-const total_products = document.querySelector(".total-products");
 
 
 //Product image
@@ -52,8 +49,6 @@ next_icon.addEventListener("click", () => {
 	product_image.src = images[image_index].img;
 	image_index++;
 
-	console.log(image_index);
-
 	if(image_index >= images.length) {
 		image_index = 0;
 	}
@@ -64,12 +59,11 @@ previus_icon.addEventListener("click", () => {
 	product_image.src = images[image_index].img;
 	image_index--;
 
-	console.log(image_index);
-
 	if(image_index < 0) {
 		image_index = images.length - 1;
 	}
 })
+
 
 cart_icon.addEventListener("click", () => {
 	cart_container.classList.toggle("open-cart-container");
@@ -99,24 +93,54 @@ close_icon.addEventListener("click", () => {
 	menu.classList.toggle("open-menu");
 })
 
+//Total products
+const total_products = document.querySelector(".total-products");
 
 //Add item to cart
 const cart_empty_text = document.querySelector(".cart-empty-text");
 const cart_items = document.querySelector(".cart-items");
 const total_products_cart = document.querySelector(".total-products-cart");
-let total_items = 0;
+const product_price = document.querySelector(".product-price");
 
 //Add a new item to cart
-/*btn_add.addEventListener("click", () => {
 
-	const item = document.createElement("DIV");
+btn_add.addEventListener("click", () => {
 
-	item.innerHTML = `<img src="images/icon-delete.svg" alt="delete-icon">`;
+	if(total_products.textContent == "0") {
+		alert("Add item to cart.");
+	}
+	else {
 
-	item.classList.add("cart-item");
-	cart_items.appendChild(item);
-	cart_empty_text.style.display = "none";
-	total_items++;
-	total_products_cart.textContent = total_items;
-	total_products_cart.style.display = "block";
-})*/
+		const item = document.createElement("DIV");
+
+
+		item.classList.add("cart-item");
+		cart_empty_text.style.display = "none";
+		total_products_cart.textContent = total_products.textContent;
+		total_products_cart.style.display = "block";
+		let total_price = +product_price.textContent.slice(1) * +total_products_cart.textContent;
+		btn_checkout.style.display = "block";
+
+		item.innerHTML = `
+		<div class="item-content-div">
+			<img src="images/image-product-${image_index}.jpg" class="cart-item-img" alt="cart-item-img">
+			<div class="description-div">
+				<p class="product-title">Autumn Limited Edition...</p>
+					<p class="product-price">${product_price.textContent} x ${total_products_cart.textContent} <span class="total-product-span">$${total_price}.00</span></p>
+			</div>
+			<img src="images/icon-delete.svg" class="delete-icon" alt="delete-icon">
+		</div>
+
+		`;
+		cart_items.appendChild(item);
+
+		cart_items.addEventListener("click", e => {
+			if(e.target.className === "delete-icon") {
+				cart_items.removeChild(item);
+				cart_empty_text.style.display = "block";
+				btn_checkout.style.display = "none";
+			}
+		})
+	}
+
+})
